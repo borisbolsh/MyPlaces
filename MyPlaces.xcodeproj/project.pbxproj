@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		450A9CFE270E2E1C0056AFC0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A9CFD270E2E1C0056AFC0 /* MainVC.swift */; };
 		450A9D00270E48450056AFC0 /* CustomTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A9CFF270E48450056AFC0 /* CustomTVCell.swift */; };
+		451B2F24271178ED00329E07 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451B2F23271178ED00329E07 /* RatingControl.swift */; };
+		451B2F262711A0FA00329E07 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451B2F252711A0FA00329E07 /* MapVC.swift */; };
 		45300DB8271065B20072D919 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45300DB7271065B20072D919 /* StorageManager.swift */; };
 		4531CCCF270EFCAD00A09BAE /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4531CCCE270EFCAD00A09BAE /* PlaceModel.swift */; };
 		45AA1CB2270F4C1A00412263 /* NewPlaceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA1CB1270F4C1A00412263 /* NewPlaceTVC.swift */; };
+		45D3BB3B27122EE10080C4A7 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D3BB3A27122EE10080C4A7 /* MapManager.swift */; };
 		45DAC878270DFB0E00B63945 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAC877270DFB0E00B63945 /* AppDelegate.swift */; };
 		45DAC87A270DFB0E00B63945 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAC879270DFB0E00B63945 /* SceneDelegate.swift */; };
 		45DAC87F270DFB0E00B63945 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45DAC87D270DFB0E00B63945 /* Main.storyboard */; };
@@ -24,9 +27,12 @@
 		00F8BFFDD6263B7E81ABDA8C /* Pods-MyPlaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlaces.release.xcconfig"; path = "Target Support Files/Pods-MyPlaces/Pods-MyPlaces.release.xcconfig"; sourceTree = "<group>"; };
 		450A9CFD270E2E1C0056AFC0 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		450A9CFF270E48450056AFC0 /* CustomTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTVCell.swift; sourceTree = "<group>"; };
+		451B2F23271178ED00329E07 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		451B2F252711A0FA00329E07 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		45300DB7271065B20072D919 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		4531CCCE270EFCAD00A09BAE /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		45AA1CB1270F4C1A00412263 /* NewPlaceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceTVC.swift; sourceTree = "<group>"; };
+		45D3BB3A27122EE10080C4A7 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		45DAC874270DFB0E00B63945 /* MyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DAC877270DFB0E00B63945 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45DAC879270DFB0E00B63945 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +56,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		454639DE27122CC000DF76E3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				450A9CFD270E2E1C0056AFC0 /* MainVC.swift */,
+				45AA1CB1270F4C1A00412263 /* NewPlaceTVC.swift */,
+				450A9CFF270E48450056AFC0 /* CustomTVCell.swift */,
+				451B2F252711A0FA00329E07 /* MapVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		454639DF27122D3900DF76E3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				45DAC877270DFB0E00B63945 /* AppDelegate.swift */,
+				45DAC879270DFB0E00B63945 /* SceneDelegate.swift */,
+				45DAC880270DFB1000B63945 /* Assets.xcassets */,
+				45DAC885270DFB1000B63945 /* Info.plist */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		454639E027122D7B00DF76E3 /* IBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				45DAC87D270DFB0E00B63945 /* Main.storyboard */,
+				45DAC882270DFB1000B63945 /* LaunchScreen.storyboard */,
+			);
+			path = IBuilder;
+			sourceTree = "<group>";
+		};
+		454639E127122D9700DF76E3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				451B2F23271178ED00329E07 /* RatingControl.swift */,
+				45300DB7271065B20072D919 /* StorageManager.swift */,
+				45D3BB3A27122EE10080C4A7 /* MapManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		454639E227122DAC00DF76E3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4531CCCE270EFCAD00A09BAE /* PlaceModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		45DAC86B270DFB0E00B63945 = {
 			isa = PBXGroup;
 			children = (
@@ -71,17 +126,11 @@
 		45DAC876270DFB0E00B63945 /* MyPlaces */ = {
 			isa = PBXGroup;
 			children = (
-				45DAC877270DFB0E00B63945 /* AppDelegate.swift */,
-				45DAC879270DFB0E00B63945 /* SceneDelegate.swift */,
-				450A9CFD270E2E1C0056AFC0 /* MainVC.swift */,
-				4531CCCE270EFCAD00A09BAE /* PlaceModel.swift */,
-				45300DB7271065B20072D919 /* StorageManager.swift */,
-				450A9CFF270E48450056AFC0 /* CustomTVCell.swift */,
-				45AA1CB1270F4C1A00412263 /* NewPlaceTVC.swift */,
-				45DAC87D270DFB0E00B63945 /* Main.storyboard */,
-				45DAC882270DFB1000B63945 /* LaunchScreen.storyboard */,
-				45DAC880270DFB1000B63945 /* Assets.xcassets */,
-				45DAC885270DFB1000B63945 /* Info.plist */,
+				454639E227122DAC00DF76E3 /* Models */,
+				454639E127122D9700DF76E3 /* Helpers */,
+				454639DF27122D3900DF76E3 /* Support Files */,
+				454639DE27122CC000DF76E3 /* ViewController */,
+				454639E027122D7B00DF76E3 /* IBuilder */,
 			);
 			path = MyPlaces;
 			sourceTree = "<group>";
@@ -221,8 +270,11 @@
 				45DAC878270DFB0E00B63945 /* AppDelegate.swift in Sources */,
 				4531CCCF270EFCAD00A09BAE /* PlaceModel.swift in Sources */,
 				45300DB8271065B20072D919 /* StorageManager.swift in Sources */,
+				451B2F24271178ED00329E07 /* RatingControl.swift in Sources */,
 				450A9D00270E48450056AFC0 /* CustomTVCell.swift in Sources */,
+				45D3BB3B27122EE10080C4A7 /* MapManager.swift in Sources */,
 				45AA1CB2270F4C1A00412263 /* NewPlaceTVC.swift in Sources */,
+				451B2F262711A0FA00329E07 /* MapVC.swift in Sources */,
 				45DAC87A270DFB0E00B63945 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,7 +425,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88GGD7677D;
-				INFOPLIST_FILE = MyPlaces/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyPlaces/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,7 +445,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88GGD7677D;
-				INFOPLIST_FILE = MyPlaces/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyPlaces/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

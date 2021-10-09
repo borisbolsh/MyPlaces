@@ -8,7 +8,7 @@ import UIKit
 
 class NewPlaceTVC: UITableViewController {
     
-    var currentPlace: Place?
+    var currentPlace: Place!
     var imageIsChanged = false
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -17,6 +17,8 @@ class NewPlaceTVC: UITableViewController {
     @IBOutlet weak var placeName: UITextField!
     @IBOutlet weak var placeLocation: UITextField!
     @IBOutlet weak var placeType: UITextField!
+    @IBOutlet weak var ratingControl: RatingControl!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,7 @@ class NewPlaceTVC: UITableViewController {
         saveButton.isEnabled = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         setupEditScreen()
+        
     }
     
     // MARK: Table view delegate
@@ -61,22 +64,36 @@ class NewPlaceTVC: UITableViewController {
         }
     }
     
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard
+            let identifier = segue.identifier,
+            let mapVC = segue.destination as? MapVC
+            else { return }
+        
+        mapVC.incomeSegueIdentifier = identifier
+        mapVC.mapVCDelegate = self
+        
+        if identifier == "showPlace" {
+            mapVC.place.name = placeName.text!
+            mapVC.place.location = placeLocation.text
+            mapVC.place.type = placeType.text
+            mapVC.place.imageData = placeImage.image?.pngData()
+        }
+    }
+    
     func savePlace() {
             
-        var image: UIImage?
-        
-        if imageIsChanged {
-            image = placeImage.image
-        } else {
-            image = UIImage(imageLiteralResourceName: "imagePlaceholder")
-        }
-        
+        let image = imageIsChanged ? placeImage.image : #imageLiteral(resourceName: "imagePlaceholder")
         let imageData = image?.pngData()
         
         let newPlace = Place(name: placeName.text!,
                               location: placeLocation.text,
                               type: placeType.text,
-                              imageData: imageData)
+                              imageData: imageData,
+                              rating: Double(ratingControl.rating))
         
         if currentPlace != nil {
             try! realm.write {
@@ -84,6 +101,7 @@ class NewPlaceTVC: UITableViewController {
                 currentPlace?.location = newPlace.location
                 currentPlace?.type = newPlace.type
                 currentPlace?.imageData = newPlace.imageData
+                currentPlace?.rating = newPlace.rating
             }
         } else {
             StorageManager.saveObject(newPlace)
@@ -108,6 +126,7 @@ class NewPlaceTVC: UITableViewController {
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeType.text = currentPlace?.type
+            ratingControl.rating = Int(currentPlace.rating)
         }
     }
     
@@ -168,4 +187,12 @@ extension NewPlaceTVC: UIImagePickerControllerDelegate, UINavigationControllerDe
         
             dismiss(animated: true)
         }
+}
+
+
+extension NewPlaceTVC: MapVCDelegate {
+    
+    func getAddress(_ address: String?) {
+        placeLocation.text = address
+    }
 }
